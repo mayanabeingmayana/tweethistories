@@ -1,19 +1,38 @@
-import { promises as fs } from 'fs';
-import path from 'path';
+import { NextResponse } from 'next/server';
 
-export async function GET() {
+// In-memory storage for demo purposes
+// In a real app, you'd use a database
+let pendingTweets = [];
+
+export async function GET(request) {
+  // Basic auth check
+  const authHeader = request.headers.get('authorization');
+  if (!authHeader || !authHeader.startsWith('Basic ')) {
+    return NextResponse.json(
+      { error: 'Unauthorized' },
+      { status: 401 }
+    );
+  }
+
   try {
-    const tweetsPath = path.join(process.cwd(), 'src', 'data', 'tweets.json');
-    const tweetsData = JSON.parse(await fs.readFile(tweetsPath, 'utf8'));
-    return new Response(JSON.stringify(tweetsData.pending), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    const base64Credentials = authHeader.split(' ')[1];
+    const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
+    const [username, password] = credentials.split(':');
+
+    // Check credentials against environment variables
+    if (username !== process.env.ADMIN_USERNAME || password !== process.env.ADMIN_PASSWORD) {
+      return NextResponse.json(
+        { error: 'Invalid credentials' },
+        { status: 401 }
+      );
+    }
+
+    return NextResponse.json(pendingTweets);
   } catch (error) {
-    console.error('Error fetching pending tweets:', error);
-    return new Response(JSON.stringify({ error: 'Internal server error' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    console.error('Error in admin auth:', error);
+    return NextResponse.json(
+      { error: 'Authentication failed' },
+      { status: 401 }
+    );
   }
 }

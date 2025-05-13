@@ -1,46 +1,55 @@
-import { promises as fs } from 'fs';
-import path from 'path';
+import { NextResponse } from 'next/server';
+
+// In-memory storage for demo purposes
+// In a real app, you'd use a database
+let pendingTweets = [];
 
 export async function POST(request) {
   try {
-    const { url, userId } = await request.json();
+    const body = await request.json();
+    const { url, userId } = body;
 
-    // Validate required fields
     if (!url || !userId) {
-      return new Response(JSON.stringify({ error: 'URL and userId are required' }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' },
-      });
+      return NextResponse.json(
+        { error: 'URL and userId are required' },
+        { status: 400 }
+      );
     }
 
-    // Read the current tweets file
-    const tweetsPath = path.join(process.cwd(), 'src', 'data', 'tweets.json');
-    const tweetsData = JSON.parse(await fs.readFile(tweetsPath, 'utf8'));
+    // Validate URL
+    try {
+      new URL(url);
+    } catch (e) {
+      return NextResponse.json(
+        { error: 'Invalid URL' },
+        { status: 400 }
+      );
+    }
 
-    // Create new tweet object
-    const newTweet = {
+    // Add to pending tweets
+    const tweet = {
       id: Date.now().toString(),
-      userId,
       url,
+      userId,
       timestamp: new Date().toISOString(),
-      approved: false
+      status: 'pending'
     };
 
-    // Add to pending section
-    tweetsData.pending.push(newTweet);
+    pendingTweets.push(tweet);
 
-    // Write back to file
-    await fs.writeFile(tweetsPath, JSON.stringify(tweetsData, null, 2));
-
-    return new Response(JSON.stringify(newTweet), {
-      status: 201,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return NextResponse.json(
+      { message: 'Tweet submitted for approval', tweet },
+      { status: 200 }
+    );
   } catch (error) {
-    console.error('Error handling tweet submission:', error);
-    return new Response(JSON.stringify({ error: 'Internal server error' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    console.error('Error submitting tweet:', error);
+    return NextResponse.json(
+      { error: 'Failed to submit tweet' },
+      { status: 500 }
+    );
   }
+}
+
+export async function GET() {
+  return NextResponse.json(pendingTweets);
 }
