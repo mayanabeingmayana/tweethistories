@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // Enable static exports
+  output: 'export',
+  basePath: '/tweethistories',
   images: {
-    unoptimized: true, // Required for static export
     remotePatterns: [
       {
         protocol: 'https',
@@ -20,14 +20,12 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+    unoptimized: true,
   },
   devIndicators: {
     buildActivity: false,
     buildActivityPosition: 'bottom-right',
   },
-  // If you're deploying to a custom domain, you can remove these
-  basePath: process.env.NODE_ENV === 'production' ? '/twitter' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/twitter/' : '',
 };
 
 module.exports = nextConfig;
