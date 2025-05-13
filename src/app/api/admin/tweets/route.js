@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { getPendingTweets } from '@/lib/storage';
 
 // In-memory storage for demo purposes
 // In a real app, you'd use a database
@@ -52,7 +51,7 @@ export async function GET(request) {
     }
 
     console.log('Authentication successful');
-    return NextResponse.json(getPendingTweets());
+    return NextResponse.json(pendingTweets);
   } catch (error) {
     console.error('Error in admin auth:', error);
     return NextResponse.json(

@@ -1,21 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import MainLayout from '../components/layout/MainLayout';
 import Tweet from '../components/Tweet';
 import TweetModal from '../components/TweetModal';
+import { tweets } from '../data/data';
 import { useTheme } from '../context/ThemeContext';
-import { getApprovedTweets } from '@/lib/storage';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const [tweets, setTweets] = useState([]);
-
-  useEffect(() => {
-    // Load approved tweets
-    setTweets(getApprovedTweets());
-  }, []);
 
   return (
     <MainLayout>

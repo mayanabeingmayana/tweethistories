@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import { addPendingTweet, getPendingTweets } from '@/lib/storage';
 
 // In-memory storage for demo purposes
 // In a real app, you'd use a database
 let pendingTweets = [];
+let approvedTweets = [];
 
 export async function POST(request) {
   try {
@@ -31,20 +31,23 @@ export async function POST(request) {
       );
     }
 
-    // Add to pending tweets
+    // Create tweet object
     const tweet = {
       id: Date.now().toString(),
       url,
       userId,
       timestamp: new Date().toISOString(),
-      status: 'pending'
+      status: 'approved' // Automatically set to approved
     };
 
-    addPendingTweet(tweet);
-    console.log('Tweet added to pending:', tweet);
+    // Add to both pending and approved lists (for admin interface and display)
+    pendingTweets.push(tweet);
+    approvedTweets.push(tweet);
+
+    console.log('Tweet added:', tweet);
 
     return NextResponse.json(
-      { message: 'Tweet submitted for approval', tweet },
+      { message: 'Tweet added successfully', tweet },
       { status: 200 }
     );
   } catch (error) {
@@ -57,5 +60,6 @@ export async function POST(request) {
 }
 
 export async function GET() {
-  return NextResponse.json(getPendingTweets());
+  // Return approved tweets for display
+  return NextResponse.json(approvedTweets);
 }

@@ -1,34 +1,5 @@
 import tweetsData from './tweets.json';
 
-// Sample trending topics data
-export const trends = [
-  {
-    id: 1,
-    topic: '#JavaScript',
-    tweetCount: '12.5K'
-  },
-  {
-    id: 2,
-    topic: '#React',
-    tweetCount: '8.2K'
-  },
-  {
-    id: 3,
-    topic: '#WebDev',
-    tweetCount: '5.7K'
-  },
-  {
-    id: 4,
-    topic: '#Programming',
-    tweetCount: '15.3K'
-  },
-  {
-    id: 5,
-    topic: '#TechNews',
-    tweetCount: '10.1K'
-  }
-];
-
 // Helper function to convert ISO timestamp to relative time
 function getRelativeTime(date) {
   const now = new Date();

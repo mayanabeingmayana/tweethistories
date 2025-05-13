@@ -1,32 +1,6 @@
 {
   "approved": [
     {
-      "id": "1746752803079",
-      "userId": "1",
-      "url": "https://x.com/LibelulaMelo/status/1912467157629251989",
-      "timestamp": "2025-05-09T01:06:43.079Z",
-      "approved": true,
-      "approvedAt": "2025-05-09T01:06:54.883Z",
-      "authorName": "menina das moscas",
-      "authorUsername": "LibelulaMelo",
-      "authorAvatar": "https://pbs.twimg.com/profile_images/1877078432674152448/mh-J0IQJ_normal.jpg",
-      "text": "tenho que amadurecer pra ser professora toda piadinha de aluno eu fico assim\n",
-      "metrics": {
-        "retweet_count": 5299,
-        "reply_count": 692,
-        "like_count": 38192,
-        "quote_count": 8140,
-        "impression_count": 39257225
-      },
-      "media": [
-        {
-          "type": "gif",
-          "url": "https://t.co/IVDCjIbjNf"
-        }
-      ],
-      "originalUrl": "https://x.com/LibelulaMelo/status/1912467157629251989"
-    },
-    {
       "id": "1746754009541",
       "userId": "1",
       "url": "https://x.com/go1dwing/status/1912793824356602074",
