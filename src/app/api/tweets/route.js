@@ -7,9 +7,12 @@ let pendingTweets = [];
 export async function POST(request) {
   try {
     const body = await request.json();
+    console.log('Received tweet submission:', body);
+
     const { url, userId } = body;
 
     if (!url || !userId) {
+      console.log('Missing required fields:', { url, userId });
       return NextResponse.json(
         { error: 'URL and userId are required' },
         { status: 400 }
@@ -20,6 +23,7 @@ export async function POST(request) {
     try {
       new URL(url);
     } catch (e) {
+      console.log('Invalid URL:', url);
       return NextResponse.json(
         { error: 'Invalid URL' },
         { status: 400 }
@@ -36,6 +40,7 @@ export async function POST(request) {
     };
 
     pendingTweets.push(tweet);
+    console.log('Tweet added to pending:', tweet);
 
     return NextResponse.json(
       { message: 'Tweet submitted for approval', tweet },
@@ -44,7 +49,7 @@ export async function POST(request) {
   } catch (error) {
     console.error('Error submitting tweet:', error);
     return NextResponse.json(
-      { error: 'Failed to submit tweet' },
+      { error: 'Failed to submit tweet: ' + error.message },
       { status: 500 }
     );
   }

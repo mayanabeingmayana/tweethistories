@@ -45,8 +45,10 @@ export default function TweetModal({ isOpen, onClose }) {
         }),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error('Failed to submit tweet');
+        throw new Error(data.error || 'Failed to submit tweet');
       }
 
       setSubmitStatus('success');
@@ -56,6 +58,7 @@ export default function TweetModal({ isOpen, onClose }) {
         onClose();
       }, 1500);
     } catch (error) {
+      console.error('Error submitting tweet:', error);
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus(null), 3000);
     } finally {
