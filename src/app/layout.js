@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Twitter Clone',
-  description: 'A Twitter clone built with Next.js and Tailwind CSS',
+  title: 'tweetHistories',
+  description: 'A collection of memorable tweets',
 };
 
 export default function RootLayout({ children }) {

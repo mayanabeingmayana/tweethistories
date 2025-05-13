@@ -1,6 +1,6 @@
-# TweetHistories
+# tweetHistories
 
-A Twitter clone built with Next.js and Tailwind CSS.
+A collection of memorable tweets built with Next.js and Tailwind CSS.
 
 ## Development
 
