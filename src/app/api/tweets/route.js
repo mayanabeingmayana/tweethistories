@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { addPendingTweet, getPendingTweets } from '@/lib/storage';
 
 // In-memory storage for demo purposes
 // In a real app, you'd use a database
@@ -39,7 +40,7 @@ export async function POST(request) {
       status: 'pending'
     };
 
-    pendingTweets.push(tweet);
+    addPendingTweet(tweet);
     console.log('Tweet added to pending:', tweet);
 
     return NextResponse.json(
@@ -56,5 +57,5 @@ export async function POST(request) {
 }
 
 export async function GET() {
-  return NextResponse.json(pendingTweets);
+  return NextResponse.json(getPendingTweets());
 }
