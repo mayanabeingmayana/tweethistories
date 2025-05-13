@@ -1,0 +1,107 @@
+{
+  "approved": [
+    {
+      "id": "1746752803079",
+      "userId": "1",
+      "url": "https://x.com/LibelulaMelo/status/1912467157629251989",
+      "timestamp": "2025-05-09T01:06:43.079Z",
+      "approved": true,
+      "approvedAt": "2025-05-09T01:06:54.883Z",
+      "authorName": "menina das moscas",
+      "authorUsername": "LibelulaMelo",
+      "authorAvatar": "https://pbs.twimg.com/profile_images/1877078432674152448/mh-J0IQJ_normal.jpg",
+      "text": "tenho que amadurecer pra ser professora toda piadinha de aluno eu fico assim\n",
+      "metrics": {
+        "retweet_count": 5299,
+        "reply_count": 692,
+        "like_count": 38192,
+        "quote_count": 8140,
+        "impression_count": 39257225
+      },
+      "media": [
+        {
+          "type": "gif",
+          "url": "https://t.co/IVDCjIbjNf"
+        }
+      ],
+      "originalUrl": "https://x.com/LibelulaMelo/status/1912467157629251989"
+    },
+    {
+      "id": "1746754009541",
+      "userId": "1",
+      "url": "https://x.com/go1dwing/status/1912793824356602074",
+      "timestamp": "2025-05-09T01:26:49.541Z",
+      "approved": true,
+      "approvedAt": "2025-05-09T01:27:05.535Z",
+      "authorName": "sarah 💌",
+      "authorUsername": "go1dwing",
+      "authorAvatar": "https://pbs.twimg.com/profile_images/1905558422562766852/NntSicoP_normal.jpg",
+      "text": "tell me yours pls",
+      "metrics": {
+        "retweet_count": 10149,
+        "reply_count": 7471,
+        "like_count": 357307,
+        "quote_count": 13319,
+        "impression_count": 51859047
+      },
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/Goub1_NaYAAo9rr.jpg"
+        }
+      ],
+      "originalUrl": "https://x.com/go1dwing/status/1912793824356602074"
+    },
+    {
+      "id": "1746755751825",
+      "userId": "1",
+      "url": "https://x.com/officedundies/status/1911579021130805503",
+      "timestamp": "2025-05-09T01:55:51.825Z",
+      "approved": true,
+      "approvedAt": "2025-05-09T01:56:14.409Z",
+      "authorName": "office dundies",
+      "authorUsername": "officedundies",
+      "authorAvatar": "https://pbs.twimg.com/profile_images/1913234832995340288/FE5QsHtJ_normal.jpg",
+      "text": "faça um tweet como se você estivesse em the office",
+      "metrics": {
+        "retweet_count": 55,
+        "reply_count": 348,
+        "like_count": 2401,
+        "quote_count": 1513,
+        "impression_count": 2614558
+      },
+      "media": [],
+      "originalUrl": "https://x.com/officedundies/status/1911579021130805503"
+    },
+    {
+      "id": "1746755830030",
+      "userId": "1",
+      "url": "https://x.com/leninaveira2/status/1910405942300049560",
+      "timestamp": "2025-05-09T01:57:10.032Z",
+      "approved": true,
+      "approvedAt": "2025-05-09T02:17:10.021Z",
+      "authorName": "Lenilson de Mello",
+      "authorUsername": "leninaveira2",
+      "authorAvatar": "https://pbs.twimg.com/profile_images/1879400608605536256/uIBKoPYl_normal.jpg",
+      "text": "Uma prima minha foi fazer doutorado em Portugal. Aí pra quebrar gelo... 😅🤭💁🙈 Ela teve a brilhante ideia de contar para eles uma piada de português que meu tio contava. \n\nSimples.\n\nQuantos portugueses são necessários para trocar uma lâmpada 💡?\n\n...Ao menos 5.\n\nPor quê? 🧶",
+      "metrics": {
+        "retweet_count": 250,
+        "reply_count": 147,
+        "like_count": 22339,
+        "quote_count": 153,
+        "impression_count": 3681704
+      },
+      "media": [],
+      "originalUrl": "https://x.com/leninaveira2/status/1910405942300049560"
+    }
+  ],
+  "pending": [
+    {
+      "id": "1747158704774",
+      "userId": "1",
+      "url": "https://x.com/raroque/status/1922342839276499094",
+      "timestamp": "2025-05-13T17:51:44.774Z",
+      "approved": false
+    }
+  ]
+}
