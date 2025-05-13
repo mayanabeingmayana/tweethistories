@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  basePath: '/tweethistories',
   images: {
     remotePatterns: [
       {
@@ -20,7 +18,6 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    unoptimized: true,
   },
   devIndicators: {
     buildActivity: false,
